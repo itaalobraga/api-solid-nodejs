@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/itaalobraga/api-solid-nodejs#readme",
   "devDependencies": {
+    "@types/bcryptjs": "2.4.2",
     "@types/node": "18.15.3",
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
