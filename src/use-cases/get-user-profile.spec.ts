@@ -7,7 +7,7 @@ import { GetUserProfileUseCase } from "./get-user-profile";
 let usersRepository: InMemoryUsersRepository;
 let sut: GetUserProfileUseCase;
 
-describe("Authenticate Use Case", () => {
+describe("Get User Profile Use Case", () => {
   beforeEach(() => {
     usersRepository = new InMemoryUsersRepository();
     sut = new GetUserProfileUseCase(usersRepository);
@@ -26,7 +26,7 @@ describe("Authenticate Use Case", () => {
   });
 
   it("should not be able to get user profile wrong id", async () => {
-    expect(() => sut.execute({ userId: "non-existing-id" })).rejects.toBeInstanceOf(
+    await expect(() => sut.execute({ userId: "non-existing-id" })).rejects.toBeInstanceOf(
       ResourceNotFound
     );
   });
