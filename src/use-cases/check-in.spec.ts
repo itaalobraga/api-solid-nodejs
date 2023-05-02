@@ -2,7 +2,7 @@ import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-c
 import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memory-gyms-repository";
 import { Decimal } from "@prisma/client/runtime/library";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { CheckInUseCase } from "./checkin";
+import { CheckInUseCase } from "./check-in";
 import { MaxDistanceError } from "./errors/max-distance-error";
 import { MaxNumberOfCheckInsError } from "./errors/max-number-of-check-ins-error";
 
@@ -95,7 +95,7 @@ describe("Check-in Use Case", () => {
       title: "Javascript",
     });
 
-    expect(() =>
+    await expect(() =>
       sut.execute({
         gymId: "gym-02",
         userId: "user-01",
